@@ -12,7 +12,8 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	if err := libs.SaveBlogs(blogs); err != nil {
+	log.Printf("成功读取%d篇影评。\n", len(blogs))
+	if err := libs.PostBlogs(blogs); err != nil {
 		log.Fatalln(err)
 	}
 }
