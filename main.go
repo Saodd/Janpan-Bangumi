@@ -13,6 +13,7 @@ func main() {
 		log.Fatalln(err)
 	}
 	log.Printf("成功读取%d篇影评。\n", len(blogs))
+	libs.QuickSortBlog(blogs)
 	if err := libs.PostBlogs(blogs); err != nil {
 		log.Fatalln(err)
 	}
