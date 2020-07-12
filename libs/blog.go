@@ -33,6 +33,7 @@ type Blog struct {
 	BangumiSource string `json:"bangumi_source" yaml:"BangumiSource"`
 	BangumiImage  string `json:"bangumi_image" yaml:"BangumiImage"`
 	SeriesName    string `json:"series_name" yaml:"SeriesName"`
+	SeriesCode    string `json:"series_code" yaml:"SeriesCode"`
 	// 本人观看数据
 	WatchDate    string `json:"watch_date" yaml:"WatchDate"`
 	WatchEpisode string `json:"watch_episode" yaml:"WatchEpisode"`
