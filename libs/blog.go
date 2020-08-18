@@ -17,7 +17,7 @@ import (
 
 const (
 	PublicBlogDir = "./public"
-	blogInputExpr = "(?s)## (.*?)\n(.*?)\n```yaml lw-blog-meta(.*?)```"
+	blogInputExpr = "(?s)\n## (.*?)\n(.*?)\n```yaml lw-blog-meta(.*?)```"
 )
 
 var (
