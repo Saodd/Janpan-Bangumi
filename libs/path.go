@@ -4,7 +4,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
-	"path"
+	"path/filepath"
 )
 
 const ProjectDirname = "Janpan-Bangumi"
@@ -15,8 +15,8 @@ func CheckWorkDir() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	if path.Base(workDir) != ProjectDirname {
-		log.Fatalf("当前路径不是项目根目录(%s)！\n", ProjectDirname)
+	if filepath.Base(workDir) != ProjectDirname {
+		log.Fatalf("当前路径(%s)不是项目根目录(%s)！\n", filepath.Base(workDir), ProjectDirname)
 	}
 }
 
@@ -25,11 +25,11 @@ func RecurListMds(folder string) (mds []string) {
 	files, _ := ioutil.ReadDir(folder)
 	for _, file := range files {
 		if file.IsDir() {
-			subFolder := path.Join(folder, file.Name())
+			subFolder := filepath.Join(folder, file.Name())
 			mds = append(mds, RecurListMds(subFolder)...)
 		} else {
 			if name := file.Name(); len(name) > 3 && name[len(name)-3:] == ".md" {
-				mds = append(mds, path.Join(folder, file.Name()))
+				mds = append(mds, filepath.Join(folder, file.Name()))
 			}
 		}
 	}
