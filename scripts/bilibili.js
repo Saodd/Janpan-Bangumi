@@ -17,17 +17,16 @@
             cover: cover.replace('http://', 'https://'),
             title: title,
             link: link.replace('http://', 'https://'),
-
             yearMonth: year * 100 + month,
-            episode: '',
-
             markStatus: 0,  // 0:还没看 -1:放弃 1:追番中 2:已追完
-            markScore: 0,
-            markBrev: '',
-            markDate: '',
-            markEpisode: '',
-            tags: [],
+
+            // episode: '',
+            // markEpisode: '',
+            // markScore: 0,
+            // markBrev: '',
+            // markDate: '',
+            // tags: [],
         }
-    }).filter(({title}) => no(title, '中配版') && no(title, '粤配版') && no(title, '地區'))
+    }).filter(({title}) => no(title, '中配版') && no(title, '粤配版') && no(title, '地區') && no(title, '僅限'))
     console.log(JSON.stringify(res))
 })()

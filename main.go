@@ -2,20 +2,17 @@ package main
 
 import (
 	"janpan-bangumi/libs"
+	"log"
 )
 
 func main() {
 	libs.CheckWorkDir()
 	listFiles := libs.RecurListJsons("./bangumi/list")
-	libs.HandleListFiles(listFiles)
+	datas := libs.HandleListFiles(listFiles)
+	commentFiles := libs.RecurListMds("./bangumi/comment")
+	comments := libs.HandleCommentFiles(commentFiles)
 
-	//blogs, err := libs.ParseBlogFiles(listFiles)
-	//if err != nil {
-	//	log.Fatalln(err)
-	//}
-	//log.Printf("成功读取%d篇影评。\n", len(blogs))
-	//libs.QuickSortBlog(blogs)
-	//if err := libs.PostBlogs(blogs); err != nil {
-	//	log.Fatalln(err)
-	//}
+	datas, comments = libs.CombineListAndComment(datas, comments)
+	log.Printf("共计：%d个List，%d个Comment", len(datas), len(comments))
+	libs.Upload(datas, comments)
 }
