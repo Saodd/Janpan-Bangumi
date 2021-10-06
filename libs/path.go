@@ -35,3 +35,19 @@ func RecurListMds(folder string) (mds []string) {
 	}
 	return
 }
+
+// RecurListJsons 将递归遍历指定目录，返回所有 .json 文件的路径。
+func RecurListJsons(folder string) (jsons []string) {
+	files, _ := ioutil.ReadDir(folder)
+	for _, file := range files {
+		if file.IsDir() {
+			subFolder := filepath.Join(folder, file.Name())
+			jsons = append(jsons, RecurListMds(subFolder)...)
+		} else {
+			if name := file.Name(); len(name) > 5 && name[len(name)-5:] == ".json" {
+				jsons = append(jsons, filepath.Join(folder, file.Name()))
+			}
+		}
+	}
+	return
+}

@@ -145,9 +145,9 @@ func postBlogsSegment(seg PostSegment) error {
 
 func init() {
 	if mode := os.Getenv("RUN_MODE"); mode == "" {
-		JulietBangumiUrl = "http://localhost:7777/bangumi/list"
+		JulietBangumiUrl = "http://localhost:7777"
 	} else {
-		JulietBangumiUrl = "https://api.lewinblog.com/bangumi/list"
+		JulietBangumiUrl = "https://api.lewinblog.com"
 	}
 	JulietBangumiPostToken = os.Getenv("JULIET_POST_TOKEN")
 
