@@ -32,10 +32,10 @@ func Upload(datas []*BangumiData, comments []*BangumiComment) {
 			log.Fatalln(err)
 		}
 	}
-	for i := 0; i < len(datas); i += 100 {
+	for i := 0; i < len(datas); i += 500 {
 		part := datas[i:]
-		if len(part) > 100 {
-			part = part[:100]
+		if len(part) > 500 {
+			part = part[:500]
 		}
 		j, _ := json.Marshal(part)
 		req, _ := http.NewRequest("POST", JulietBangumiUrl+"/bangumi/listV2", bytes.NewReader(j))
@@ -45,10 +45,10 @@ func Upload(datas []*BangumiData, comments []*BangumiComment) {
 			log.Fatalln(err)
 		}
 	}
-	for i := 0; i < len(comments); i += 20 {
+	for i := 0; i < len(comments); i += 100 {
 		part := comments[i:]
-		if len(part) > 20 {
-			part = part[:20]
+		if len(part) > 100 {
+			part = part[:100]
 		}
 		j, _ := json.Marshal(part)
 		req, _ := http.NewRequest("POST", JulietBangumiUrl+"/bangumi/comment", bytes.NewReader(j))
