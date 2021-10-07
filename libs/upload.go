@@ -72,7 +72,7 @@ func CombineListAndComment(datas []*BangumiData, comments []*BangumiComment) ([]
 	for _, comment := range comments {
 		data := mp[comment.Title]
 		if data == nil {
-			log.Println("没有对应的List:", comment.Title)
+			//log.Println("没有对应的List:", comment.Title)
 			data = &BangumiData{Title: comment.Title}
 			mp[comment.Title] = data
 		}
