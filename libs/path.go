@@ -42,7 +42,7 @@ func RecurListJsons(folder string) (jsons []string) {
 	for _, file := range files {
 		if file.IsDir() {
 			subFolder := filepath.Join(folder, file.Name())
-			jsons = append(jsons, RecurListMds(subFolder)...)
+			jsons = append(jsons, RecurListJsons(subFolder)...)
 		} else {
 			if name := file.Name(); len(name) > 5 && name[len(name)-5:] == ".json" {
 				jsons = append(jsons, filepath.Join(folder, file.Name()))
