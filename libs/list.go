@@ -22,11 +22,11 @@ func HandleListFiles(files []string) (datas []*BangumiData) {
 }
 
 type BangumiData struct {
-	Cover      string `json:"cover,omitempty"`
-	Title      string `json:"title,omitempty"`
-	Link       string `json:"link,omitempty"`
-	YearMonth  int    `json:"yearMonth,omitempty"`
-	MarkStatus int    `json:"markStatus,omitempty"`
+	Cover      string `json:"cover,omitempty" yaml:"cover"`
+	Title      string `json:"title,omitempty" yaml:"title"`
+	Link       string `json:"link,omitempty" yaml:"link"`
+	YearMonth  int    `json:"yearMonth,omitempty" yaml:"yearMonth"`
+	MarkStatus int    `json:"markStatus,omitempty" yaml:"markStatus"`
 
 	Episode     string   `json:"episode,omitempty" yaml:"episode"`
 	MarkScore   int      `json:"markScore,omitempty" yaml:"markScore"`
