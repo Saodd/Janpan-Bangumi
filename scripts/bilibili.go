@@ -11,10 +11,11 @@ import (
 )
 
 func main() {
-	run(2019, 1)
-	run(2019, 4)
-	run(2019, 7)
-	run(2019, 10)
+	for _, year := range []int{2021} {
+		for _, month := range []int{10} {
+			run(year, month)
+		}
+	}
 }
 
 func run(year, month int) {
@@ -38,7 +39,7 @@ func run(year, month int) {
 		log.Fatalln(err)
 	}
 	if len(data.Data.List) >= pageSize {
-		log.Fatalln("数量大于", pageSize)
+		log.Fatalln(u, "数量大于", pageSize)
 	}
 
 	var res []*BangumiData
