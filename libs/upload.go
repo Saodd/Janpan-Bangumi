@@ -69,6 +69,7 @@ func CombineListAndComment(datas []*BangumiData, comments []*BangumiComment) ([]
 		mp[data.Title] = data
 	}
 	var comments2 []*BangumiComment
+	var datas2 []*BangumiData
 	for _, comment := range comments {
 		data := mp[comment.Title]
 		if data == nil {
@@ -80,9 +81,6 @@ func CombineListAndComment(datas []*BangumiData, comments []*BangumiComment) ([]
 			log.Fatalln("yaml解析失败", "|", err, "|", string(comment.yaml))
 		}
 		comments2 = append(comments2, comment)
-	}
-	var datas2 []*BangumiData
-	for _, data := range mp {
 		datas2 = append(datas2, data)
 	}
 

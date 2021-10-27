@@ -34,4 +34,6 @@ type BangumiData struct {
 	MarkDate    string   `json:"markDate,omitempty" yaml:"markDate"`
 	MarkEpisode string   `json:"markEpisode,omitempty" yaml:"markEpisode"`
 	Tags        []string `json:"tags,omitempty" yaml:"tags"`
+
+	Alias []string `json:"-" yaml:"alias"`
 }
