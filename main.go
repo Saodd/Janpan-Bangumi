@@ -13,6 +13,7 @@ func main() {
 	comments := libs.HandleCommentFiles(commentFiles)
 
 	datas, comments = libs.CombineListAndComment(datas, comments)
+	libs.CheckDatas(datas)
 	log.Printf("共计：%d个List，%d个Comment", len(datas), len(comments))
 	libs.Upload(datas, comments)
 }

@@ -3,6 +3,7 @@ package libs
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"gopkg.in/yaml.v2"
 	"log"
 	"net/http"
@@ -85,4 +86,15 @@ func CombineListAndComment(datas []*BangumiData, comments []*BangumiComment) ([]
 	}
 
 	return datas2, comments2
+}
+
+func CheckDatas(datas []*BangumiData) {
+	for _, data := range datas {
+		if data.Cover == "" {
+			fmt.Println(data.Title, "缺少 Cover.")
+		}
+		if data.YearMonth == 0 {
+			fmt.Println(data.Title, "缺少 YearMonth.")
+		}
+	}
 }
