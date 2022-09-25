@@ -11,8 +11,8 @@ import (
 )
 
 func main() {
-	for _, year := range []int{2021} {
-		for _, month := range []int{10} {
+	for _, year := range []int{2022} {
+		for _, month := range []int{7} {
 			run(year, month)
 		}
 	}
