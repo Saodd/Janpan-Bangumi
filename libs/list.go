@@ -22,18 +22,20 @@ func HandleListFiles(files []string) (datas []*BangumiData) {
 }
 
 type BangumiData struct {
-	Cover      string `json:"cover,omitempty" yaml:"cover"`
-	Title      string `json:"title,omitempty" yaml:"title"`
-	Link       string `json:"link,omitempty" yaml:"link"`
-	YearMonth  int    `json:"yearMonth,omitempty" yaml:"yearMonth"`
-	MarkStatus int    `json:"markStatus,omitempty" yaml:"markStatus"`
+	Title     string   `json:"title,omitempty" yaml:"title"`
+	Alias     []string `json:"alias,omitempty" yaml:"alias"`
+	YearMonth int      `json:"yearMonth,omitempty" yaml:"yearMonth"`
+	Episode   string   `json:"episode,omitempty" yaml:"episode"`
 
-	Episode     string   `json:"episode,omitempty" yaml:"episode"`
-	MarkScore   int      `json:"markScore,omitempty" yaml:"markScore"`
-	MarkBrev    string   `json:"markBrev,omitempty" yaml:"markBrev"`
-	MarkDate    string   `json:"markDate,omitempty" yaml:"markDate"`
-	MarkEpisode string   `json:"markEpisode,omitempty" yaml:"markEpisode"`
-	Tags        []string `json:"tags,omitempty" yaml:"tags"`
+	Link   string `json:"link,omitempty" yaml:"link"`     // 视频播放地址（B站）
+	Cover  string `json:"cover,omitempty" yaml:"cover"`   // 封面URL
+	Douban string `json:"douban,omitempty" yaml:"douban"` // 豆瓣详情页URL
 
-	Alias []string `json:"-" yaml:"alias"`
+	MarkScore   int    `json:"markScore,omitempty" yaml:"markScore"`
+	MarkBrev    string `json:"markBrev,omitempty" yaml:"markBrev"`
+	MarkDate    string `json:"markDate,omitempty" yaml:"markDate"`
+	MarkEpisode string `json:"markEpisode,omitempty" yaml:"markEpisode"`
+
+	Tags []string `json:"tags,omitempty" yaml:"tags"`
+	Type string   `json:"type,omitempty" yaml:"type"`
 }

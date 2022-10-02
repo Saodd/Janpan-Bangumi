@@ -30,4 +30,24 @@
     + 音乐（一般）：BGM做的好，是可以成为灵魂的。而且好听的主题曲会留存在我的歌单中，让我对这部作品印象更加深刻。
     + 画面（次要）：我并不追求画质。
     + 声优阵容（次要）：虽然有几个特别喜欢的声优，但我觉得其他的声优也非常出色~
-  
+
+## 番剧数据模板
+
+```yaml
+alias:
+  - "はたらく魔王さま"
+yearMonth: 202207
+episode: "1-13"
+
+link: "https"
+cover: "https"
+douban: "https"
+
+markScore: 4
+markBrev: "说点啥吧"
+markDate: "2022-10-01"
+markEpisode: "1-13"
+
+tags: []
+type: "bangumi"
+```
