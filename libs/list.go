@@ -29,6 +29,7 @@ type BangumiData struct {
 
 	Link   string `json:"link,omitempty" yaml:"link"`     // 视频播放地址（B站）
 	Cover  string `json:"cover,omitempty" yaml:"cover"`   // 封面URL
+	CoverS string `json:"coverS" bson:"coverS"`           // 封面缩略图URL
 	Douban string `json:"douban,omitempty" yaml:"douban"` // 豆瓣详情页URL
 
 	MarkScore   int    `json:"markScore,omitempty" yaml:"markScore"`

@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 )
 
 var (
@@ -91,10 +92,24 @@ func CombineListAndComment(datas []*BangumiData, comments []*BangumiComment) ([]
 func CheckDatas(datas []*BangumiData) {
 	for _, data := range datas {
 		if data.Cover == "" {
-			fmt.Println(data.Title, "缺少 Cover.")
+			fmt.Println("缺少 Cover:", data.Title)
+		} else if strings.Contains(data.Cover, "hdslb.com") {
+			// B站
+			data.CoverS = data.Cover + "@200w_268h.webp"
+		} else if strings.Contains(data.Cover, "doubanio.com/view/photo/l/") {
+			// 豆瓣大图
+			data.CoverS = strings.ReplaceAll(data.Cover, "doubanio.com/view/photo/l/", "doubanio.com/view/photo/s_ratio_poster/")
+		} else if strings.Contains(data.Cover, "doubanio.com/view/photo/s_ratio_poster/") {
+			// 豆瓣小图，处理粗心的时候
+			data.CoverS = data.Cover
+			data.Cover = strings.ReplaceAll(data.Cover, "doubanio.com/view/photo/s_ratio_poster/", "doubanio.com/view/photo/l/")
+		} else {
+			fmt.Println("无法识别的 Cover:", data.Title)
+			data.CoverS = data.Cover
 		}
+
 		if data.YearMonth == 0 {
-			fmt.Println(data.Title, "缺少 YearMonth.")
+			fmt.Println("缺少 YearMonth:", data.Title)
 		}
 	}
 }
