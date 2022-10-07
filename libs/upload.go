@@ -96,13 +96,13 @@ func CheckDatas(datas []*BangumiData) {
 		} else if strings.Contains(data.Cover, "hdslb.com") {
 			// B站
 			data.CoverS = data.Cover + "@200w_268h.webp"
-		} else if strings.Contains(data.Cover, "doubanio.com/view/photo/l/") {
+		} else if strings.Contains(data.Cover, "/l/public/") {
 			// 豆瓣大图
-			data.CoverS = strings.ReplaceAll(data.Cover, "doubanio.com/view/photo/l/", "doubanio.com/view/photo/s_ratio_poster/")
-		} else if strings.Contains(data.Cover, "doubanio.com/view/photo/s_ratio_poster/") {
+			data.CoverS = strings.ReplaceAll(data.Cover, "/l/public/", "/s_ratio_poster/public/")
+		} else if strings.Contains(data.Cover, "/s_ratio_poster/public/") {
 			// 豆瓣小图，处理粗心的时候
 			data.CoverS = data.Cover
-			data.Cover = strings.ReplaceAll(data.Cover, "doubanio.com/view/photo/s_ratio_poster/", "doubanio.com/view/photo/l/")
+			data.Cover = strings.ReplaceAll(data.Cover, "/s_ratio_poster/public/", "/l/public/")
 		} else {
 			fmt.Println("无法识别的 Cover:", data.Title)
 			data.CoverS = data.Cover
