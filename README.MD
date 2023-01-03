@@ -36,17 +36,17 @@
 ```yaml
 alias:
   - "はたらく魔王さま"
-yearMonth: 202207
-episode: "1-13"
+yearMonth: 202210
+episode: "1-1"
 
 link: "https"
 cover: "https"
 douban: "https"
 
-markScore: 4
-markBrev: "说点啥吧"
-markDate: "2022-10-01"
-markEpisode: "1-13"
+markScore: 0
+markBrev: ""
+markDate: "2023-01-01"
+markEpisode: "1-1"
 
 tags: []
 type: "bangumi"
