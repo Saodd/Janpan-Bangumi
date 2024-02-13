@@ -36,7 +36,7 @@
 ```yaml
 alias:
   - "はたらく魔王さま"
-yearMonth: 202210
+yearMonth: 202310
 episode: "1-1"
 
 link: "https"
@@ -45,7 +45,7 @@ douban: "https"
 
 markScore: 0
 markBrev: ""
-markDate: "2023-01-01"
+markDate: "2024-01-01"
 markEpisode: "1-1"
 
 tags: []
