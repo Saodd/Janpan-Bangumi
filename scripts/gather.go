@@ -19,8 +19,15 @@ var (
 )
 
 func main() {
+	for true {
+		run()
+	}
+}
+
+func run() {
 	dirs0 := RecurListDirs(inputDir)
 
+	fmt.Println("----------开始运行----------")
 	fmt.Println("请输入文件夹关键字：")
 	var dirs []string
 	var newDir string
@@ -30,7 +37,7 @@ func main() {
 		if len(kw) == 0 {
 			break
 		} else {
-			fmt.Printf("输入内容：[%s]，长度：%d", kw, len(kw))
+			fmt.Printf("输入内容：[%s]，长度：%d\n", kw, len(kw))
 		}
 
 		dirs = nil
@@ -42,6 +49,7 @@ func main() {
 			}
 		}
 		newDir = filepath.Join(outputDir, kw)
+		fmt.Printf("共 %d 条。\n", len(dirs))
 		fmt.Printf("上述文件夹中的文件将被收集到[%s]，按回车键确认上述结果，或者重新输入文件夹关键字：\n", newDir)
 	}
 
@@ -67,7 +75,6 @@ func main() {
 			}
 		}
 	}
-
 }
 
 func RecurListDirs(folder string) (dirs []string) {
