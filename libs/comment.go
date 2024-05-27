@@ -15,6 +15,7 @@ func HandleCommentFiles(files []string) (comments []*BangumiComment) {
 			log.Fatalln(err)
 		}
 		for _, part := range bytes.Split(f, []byte("----\n")) {
+			part = bytes.TrimSpace(part)
 			if len(part) == 0 {
 				continue
 			}

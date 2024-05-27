@@ -103,6 +103,12 @@ func CheckDatas(datas []*BangumiData) {
 			// 豆瓣小图，处理粗心的时候
 			data.CoverS = data.Cover
 			data.Cover = strings.ReplaceAll(data.Cover, "/s_ratio_poster/public/", "/l/public/")
+		} else if strings.Contains(data.Cover, "/s/public") {
+			// 豆瓣图书
+			data.CoverS = data.Cover
+		} else if strings.Contains(data.Cover, "https://bookcover.yuewen.com/qdbimg/") {
+			// 起点读书
+			data.CoverS = data.Cover
 		} else {
 			fmt.Println("无法识别的 Cover:", data.Title)
 			data.CoverS = data.Cover
