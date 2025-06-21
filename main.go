@@ -7,13 +7,11 @@ import (
 
 func main() {
 	libs.CheckWorkDir()
-	listFiles := libs.RecurListJsons("./bangumi/list")
-	datas := libs.HandleListFiles(listFiles)
 	commentFiles := libs.RecurListMds("./bangumi/comment")
 	comments := libs.HandleCommentFiles(commentFiles)
 
-	datas, comments = libs.CombineListAndComment(datas, comments)
+	datas, comments := libs.CombineListAndComment(nil, comments)
 	libs.CheckDatas(datas)
-	log.Printf("共计：%d个List，%d个Comment", len(datas), len(comments))
+	log.Printf("共计：%d个Comment", len(comments))
 	libs.Upload(datas, comments)
 }
