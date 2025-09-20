@@ -1,7 +1,6 @@
 package libs
 
 import (
-	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
@@ -22,7 +21,7 @@ func CheckWorkDir() {
 
 // RecurListMds 将递归遍历指定目录，返回所有 .md 文件的路径。
 func RecurListMds(folder string) (mds []string) {
-	files, _ := ioutil.ReadDir(folder)
+	files, _ := os.ReadDir(folder)
 	for _, file := range files {
 		if file.IsDir() {
 			subFolder := filepath.Join(folder, file.Name())
@@ -30,22 +29,6 @@ func RecurListMds(folder string) (mds []string) {
 		} else {
 			if name := file.Name(); len(name) > 3 && name[len(name)-3:] == ".md" {
 				mds = append(mds, filepath.Join(folder, file.Name()))
-			}
-		}
-	}
-	return
-}
-
-// RecurListJsons 将递归遍历指定目录，返回所有 .json 文件的路径。
-func RecurListJsons(folder string) (jsons []string) {
-	files, _ := ioutil.ReadDir(folder)
-	for _, file := range files {
-		if file.IsDir() {
-			subFolder := filepath.Join(folder, file.Name())
-			jsons = append(jsons, RecurListJsons(subFolder)...)
-		} else {
-			if name := file.Name(); len(name) > 5 && name[len(name)-5:] == ".json" {
-				jsons = append(jsons, filepath.Join(folder, file.Name()))
 			}
 		}
 	}
