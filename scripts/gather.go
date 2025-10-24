@@ -55,12 +55,16 @@ func run() {
 
 	err := os.Mkdir(newDir, 0755)
 	if err != nil {
-		log.Fatalln(err)
+		if os.IsExist(err) {
+			fmt.Println("目录已经存在，忽略此错误")
+		} else {
+			log.Fatalln(err)
+		}
 	} else {
 		fmt.Println("已创建目录：", newDir)
 	}
 	for _, dir := range dirs {
-		files, _ := ioutil.ReadDir(dir)
+		files, _ := os.ReadDir(dir)
 		for _, file := range files {
 			if !file.IsDir() {
 				name := file.Name()
@@ -74,6 +78,16 @@ func run() {
 				}
 			}
 		}
+		files, _ = os.ReadDir(dir)
+		if len(files) == 0 {
+			err := os.Remove(dir)
+			if err != nil {
+				log.Fatalln(err)
+			} else {
+				fmt.Printf("删除目录：%s \n", dir)
+			}
+		}
+
 	}
 }
 
