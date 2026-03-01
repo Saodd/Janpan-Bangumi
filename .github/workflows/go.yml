@@ -25,19 +25,5 @@ jobs:
     - name: Go Run
       env:
         JULIET_POST_TOKEN: ${{ secrets.JULIET_POST_TOKEN }}
-        RUN_MODE: gh-actions
+        JULIET_ENDPOINT: https://lewinblog.com/api
       run: go run main.go
-
-    - name: Prepare html for gh-page
-      run: mkdir -p ./public && mv ./static/index.html ./public/404.html
-
-    - name: GitHub Pages action
-      uses: peaceiris/actions-gh-pages@v3.6.1
-      with:
-        # Set a generated GITHUB_TOKEN for pushing to the remote branch.
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        # Set Git user.name
-        user_name: Lewin Lan
-        # Set Git user.email
-        user_email: lewin.lan.cn@gmail.com
-  
