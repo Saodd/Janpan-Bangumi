@@ -90,6 +90,7 @@ func (b *BangumiLocal) AsServer() *BangumiServer {
 		MarkDate:    b.MarkDate,
 		MarkEpisode: b.MarkEpisode,
 		Content:     b.Content,
+		FileYear:    "", // 需要补充
 	}
 }
 
@@ -110,6 +111,7 @@ type BangumiServer struct {
 	MarkDate    string `json:"markDate" bson:"markDate"`       // 评分日期，格式：2023-09-01
 	MarkEpisode string `json:"markEpisode" bson:"markEpisode"` // 已经观看的集数
 	Content     string `json:"content" bson:"content"`         // 详细评论，Markdown格式
+	FileYear    string `json:"fileYear" bson:"fileYear"`       // 该番剧数据对应的.md文件的年份（如2023），用于清理过期数据
 }
 
 func (b *BangumiServer) AsLocal() *BangumiLocal {

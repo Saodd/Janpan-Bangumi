@@ -72,7 +72,9 @@ func (fm *FileManager) ReadAndParse() ([]BangumiYearReq, error) {
 				if err := local.Parse(title, content, yamlData); err != nil {
 					return nil, err
 				}
-				servers = append(servers, local.AsServer())
+				var server = local.AsServer()
+				server.FileYear = yearName
+				servers = append(servers, server)
 			}
 		}
 
