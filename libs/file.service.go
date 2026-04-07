@@ -21,6 +21,10 @@ func NewFileManager() *FileManager {
 	return &FileManager{dirPath: "./bangumi"}
 }
 
+func (fm *FileManager) SetDirPath(path string) {
+	fm.dirPath = path
+}
+
 // RecurListMds 将递归遍历指定目录，返回所有 .md 文件的路径。
 func (fm *FileManager) recurListMds(folder string) (mds []string) {
 	files, _ := os.ReadDir(folder)
