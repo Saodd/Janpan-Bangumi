@@ -10,8 +10,8 @@ import (
 )
 
 const (
-	inputDir  = "C://Users/Lewin/Downloads"
-	outputDir = "C://Users/Lewin/追番"
+	inputDir  = "D:/anime"
+	outputDir = "D:/anime/手动聚合"
 )
 
 var (
